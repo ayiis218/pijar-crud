@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ayi Solahudin</title>
+	<link href="../style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="konten d-flex">
+	<div class="card m-auto w-40">
+		<div class="p-2"><h1 style="text-align:center" class="m-0">Pijar Camp</h1></div>
+		<div class="p-2">
+			<table class="tg" style="width: 100%;">
+				<thead>
+					<tr style="text-align:center">
+						<td>No</td>
+						<td>Nama Produk</td>
+						<td>Keterangan</td>
+						<td>Harga</td>
+						<td>Jumlah</td>
+					</tr>
+				</thead>
+				<tbody>
+					<%
+					no = 0;
+					for(var i=0;i<data.length;i++){
+					no++;
+				  %>
+					<tr>
+						<td><%=no%></td>
+						<td><%=data[i].nama_produk%></td>
+						<td><%=data[i].keterangan%></td>
+						<td><%=data[i].harga%></td>
+						<td><%=data[i].jumlah%></td>
+					</tr>
+					<% } %> 
+				</tbody>
+			</table>
+		</div>
+		<div style="text-align:center" class="p-2">
+			<button class="m-auto btn btn-success"><a href="/update?i=<%=data[i].nama_produk%>">Edit</a></button>
+			<button class="btn btn-primary"><a href="/insert">Tambah Produk</a></button>
+			<button onclick="hapus('<%=data[i].nama_produk%>');" class="m-auto btn btn-danger" >Hapus</button>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	function hapus(i) {
+		if (confirm("Hapus akun ini ?")) {
+			window.location.href ="/hapus?i="+i;
+		}
+	}
+</script>
+</body>
+</html>
