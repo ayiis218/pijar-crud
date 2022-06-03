@@ -6,11 +6,11 @@ var port = 8080;
 
 var mysql = require('mysql');
 var db = mysql.createConnection({
-    host: '127.0.0.1',
+    host: 'localhost',
     user: 'root',
     database:"pijarcamp"
 });
-db.connect(function(err) {
+db.connect((err) => {
     if (err) throw err;
     console.log("Connected!");
 });
